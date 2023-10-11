@@ -53,7 +53,7 @@ router.put('/update/:_id', async (req, res) => {
 
 router.delete('/delete/:_id', async (req, res) => {
     const { _id } = req.params;
-    await vendormodel.findOneAndDelete(_id).catch((err) => {
+    await vendormodel.findByIdAndDelete(_id).catch((err) => {
         res.send({ message: 'Failed to delete'}, err)
     })
     res.send('Vendor deleted successfully')
